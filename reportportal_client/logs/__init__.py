@@ -105,7 +105,7 @@ class RPLogHandler(logging.Handler):
     def __init__(self, level=logging.NOTSET, filter_client_logs=False,
                  endpoint=None,
                  ignored_record_names=tuple('reportportal_client'),
-                 rp_client=None):
+                 rp_client=None, py_test_service=None):
         """
         Initialize RPLogHandler instance.
 
@@ -123,6 +123,7 @@ class RPLogHandler(logging.Handler):
         self.ignored_record_names = ignored_record_names
         self.endpoint = endpoint
         self.rp_client = rp_client
+        self.py_test_service = py_test_service
 
     def filter(self, record):
         """Filter specific records to avoid sending those to RP.
